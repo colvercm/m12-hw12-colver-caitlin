@@ -1,0 +1,237 @@
+:root {
+  --primary: hsl(217, 99%, 26%);
+  --gray: hsl(217, 11%, 64%);
+  --white: hsl(216, 100%, 95%);
+  --highlight: rgba(251, 255, 38, 0.493);
+}
+
+.grid_container {
+  display: grid;
+  grid-template-areas: 
+  'header header'
+  'nav    card'
+  '.      card'
+  'footer footer';
+  grid-template-columns: 0.2fr 1fr;
+  grid-template-rows: 100px 300px 3fr 50px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  border: 2px dotted;
+}
+
+.header {
+  display: grid;
+  grid-area: header;
+  background-color: var(--primary);
+  color: var(--white);
+  display: grid;
+  justify-content: center;
+}
+
+.header__title {
+  font-size: 2.5rem;
+  margin: 12px;
+  font-family: 'Pacifico', cursive;
+}
+
+.nav {
+  display: grid;
+  grid-area: nav;
+  grid-template-rows: 250px;
+  justify-content: center;
+  grid-auto-flow: column;
+}
+
+.nav__container {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.2rem;
+  display: grid;
+  box-shadow: var(--gray) 4px 4px 10px 2px;
+  row-gap: 24px;
+  min-width: 200px;
+  padding: 12px 0 12px;
+  margin-top: 24px;
+  justify-items: center;
+}
+
+.nav__link, .nav__link--active {
+  text-decoration: none;
+  color: var(--primary);
+  position: relative;
+}
+
+.nav__link::after, .nav__link--active::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 50%;
+  margin-left: -90px;
+  border-bottom: var(--primary) 1px solid;
+  width: 180px;
+}
+
+.nav__link--active {
+  box-shadow: inset var(--highlight) 200px 0px 0px 1px;
+  padding: 0 70px;
+}
+
+.img_card__container {
+  display: grid;
+  grid-area: card;
+  grid-auto-rows: 350px;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.2rem;
+  grid-gap: 30px 6px;
+  justify-items: center;
+  margin: 24px;
+}
+
+.img_card {
+  display: grid;
+  width: 300px;
+  box-shadow: var(--gray) 4px 4px 10px 2px;
+  border-radius: 3px;
+}
+
+.img_card__img {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.img_card__text {
+  padding: 0 12px;
+}
+
+.footer {
+  display: grid;
+  grid-area: footer;
+  justify-self: center;
+}
+
+@media screen and (max-width: 1100px) {
+  .grid_container {
+  grid-template-areas: 
+  'header'
+  'nav'    
+  'card'
+  'footer';
+  grid-template-columns: 0.2fr 1fr;
+  grid-template-rows: 100px 100px 3fr 10px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  justify-content: center;
+  }
+
+  .header {
+    display: grid;
+    grid-area: header;
+    width: 100vw;
+  }
+  
+  .header__title {
+    font-size: 2rem;
+  }
+
+  .nav {
+    display: grid;
+    grid-area: nav;
+    min-width: 300px;
+    min-height: 25px;
+    justify-self: center;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .nav__container {
+    grid-auto-rows: initial;
+    grid-auto-flow: column;
+    min-width: 600px;
+  }
+
+  .nav__link, .nav__link--active {
+    text-decoration: underline;
+  }
+  .nav__link--active {
+    padding: 0;
+  }
+  .nav__link::after, .nav__link--active::after {
+    display: none;
+  }
+
+  .img_card__container {
+    display: grid;
+    grid-area: card;
+    grid-auto-rows: 350px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2rem;
+    grid-gap: 30px 6px;
+    justify-items: center;
+    justify-content: center;
+    margin: 24px;
+}
+
+@media screen and (max-width: 600px) {
+  .grid_container {
+  grid-template-areas: 
+  'header'
+  'nav'    
+  'card'
+  'footer';
+  grid-template-columns: 0.2fr 1fr;
+  grid-template-rows: 100px 100px 3fr 10px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  margin: 0;
+  justify-content: center;
+  }
+
+  .header {
+    display: grid;
+    grid-area: header;
+    width: 100vw;
+  }
+  
+  .header__title {
+    font-size: 2rem;
+  }
+
+  .nav {
+    display: grid;
+    grid-area: nav;
+    min-width: 300px;
+    min-height: 25px;
+    justify-self: center;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
+  .nav__container {
+    grid-auto-rows: initial;
+    grid-auto-flow: column;
+    min-width: 300px;
+  }
+
+  .nav__link, .nav__link--active {
+    text-decoration: underline;
+  }
+  .nav__link--active {
+    padding: 0;
+  }
+  .nav__link::after, .nav__link--active::after {
+    display: none;
+  }
+
+  .img_card__container {
+    display: grid;
+    grid-area: card;
+    grid-auto-rows: 350px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.2rem;
+    grid-gap: 30px 6px;
+    justify-items: center;
+    justify-content: center;
+    margin: 24px;
+}
