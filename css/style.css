@@ -17,7 +17,6 @@
   box-sizing: border-box;
   min-height: 100vh;
   margin: 0;
-  border: 2px dotted;
 }
 
 .header {
@@ -110,7 +109,7 @@
   justify-self: center;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 1150px) {
   .grid_container {
   grid-template-areas: 
   'header'
